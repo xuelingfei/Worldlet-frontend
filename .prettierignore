@@ -1,0 +1,12 @@
+/dist/*
+/dist-test/*
+/dist-pre/*
+/dist-prod/*
+.local
+.output.js
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
