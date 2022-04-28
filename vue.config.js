@@ -28,4 +28,16 @@ module.exports = defineConfig({
       return args
     })
   },
+  css: {
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          modifyVars: {
+            "border-radius-base": "4px",
+          },
+          javascriptEnabled: true,
+        },
+      },
+    },
+  },
 })
