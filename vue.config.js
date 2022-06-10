@@ -1,7 +1,9 @@
 const { defineConfig } = require("@vue/cli-service")
-const { VUE_APP_PROXY_HOST, VUE_APP_ENV } = process.env
+const { VUE_APP_ENV, VUE_APP_PROXY_HOST } = process.env
 
 module.exports = defineConfig({
+  // 转译第三方依赖
+  // transpileDependencies: true,
   assetsDir: "static",
   outputDir: `dist-${VUE_APP_ENV}`,
   // 是否打包生成map文件

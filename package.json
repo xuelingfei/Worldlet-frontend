@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm run serve",
     "serve": "cross-env vue-cli-service serve --mode serve",
-    "serve:local": "cross-env vue-cli-service serve --mode serve.local",
+    "local": "cross-env vue-cli-service serve --mode local",
     "build": "npm run build:test && build:prod",
     "build:test": "cross-env vue-cli-service build --mode test",
     "build:prod": "cross-env vue-cli-service build --mode prod",
