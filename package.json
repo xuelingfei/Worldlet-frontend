@@ -6,8 +6,8 @@
     "serve": "cross-env vue-cli-service serve",
     "dev": "cross-env vue-cli-service serve --mode dev",
     "build": "cross-env vue-cli-service build",
-    "build:staging": "cross-env vue-cli-service build --mode staging",
-    "build:all": "npm run build && npm run build:staging",
+    "build:stage": "cross-env vue-cli-service build --mode staging",
+    "build:all": "npm run build && npm run build:stage",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

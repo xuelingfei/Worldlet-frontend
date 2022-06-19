@@ -1,5 +1,5 @@
 const { defineConfig } = require("@vue/cli-service")
-const { VUE_APP_ENV, VUE_APP_PROXY_HOST } = process.env
+const { VUE_APP_ENV, VUE_APP_TITLE, VUE_APP_PROXY_HOST } = process.env
 
 module.exports = defineConfig({
   // 转译第三方依赖
@@ -11,9 +11,10 @@ module.exports = defineConfig({
   devServer: {
     port: 9600,
     proxy: {
-      "/worldlet_interface": {
+      "/dev-api": {
         target: VUE_APP_PROXY_HOST || "",
         changeOrigin: true,
+        pathRewrite: { "^/dev-api": "" },
       },
       "/media": {
         target: VUE_APP_PROXY_HOST || "",
@@ -26,7 +27,7 @@ module.exports = defineConfig({
     config.plugins.delete("prefetch")
     // 设置标签页标题
     config.plugin("html").tap((args) => {
-      args[0].title = "Worldlet"
+      args[0].title = VUE_APP_TITLE
       return args
     })
   },
