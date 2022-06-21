@@ -18,6 +18,21 @@ const routes = [
     name: "account-book",
     component: () => import(/* webpackChunkName: "AccountBook" */ "@/views/account-book/index.vue"),
   },
+  {
+    path: "/back",
+    redirect: "/backend",
+  },
+  {
+    path: "/backend",
+    component: () => import(/* webpackChunkName: "BackendLayout" */ "@/layout/BackendLayout/index.vue"),
+    children: [
+      {
+        path: "",
+        name: "backend-home",
+        component: () => import(/* webpackChunkName: "BackendHome" */ "@/views/home-view/index.vue"),
+      },
+    ],
+  },
 ]
 
 const router = createRouter({
