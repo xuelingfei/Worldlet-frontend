@@ -1,0 +1,19 @@
+@import '@/styles/variables.scss';
+
+.frontend-header {
+  position: relative;
+  width: $container-width;
+  height: $header-height;
+}
+
+.frontend-container {
+  position: relative;
+  width: $container-width;
+  height: calc(100% - $header-height);
+}
+
+.frontend-footer {
+  position: relative;
+  width: $container-width;
+  height: $footer-height;
+}
