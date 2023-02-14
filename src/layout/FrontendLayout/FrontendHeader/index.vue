@@ -1,8 +1,9 @@
 <template>
-  <div>
-    {{ windowWidth }} × {{ windowHeight }}
-    <el-button text round @click="toggle">{{ language }}</el-button>
-    <el-button text round :icon="isDark ? Moon : Sunny" @click="toggleDark()" />
+  <div class="header-box center-x flex-between">
+    <div class="header-left">
+      <img class="fronted-favicon" src="/favicon.ico" alt="" />
+    </div>
+    <header-bar source="fronted" />
   </div>
 </template>
 
@@ -12,17 +13,7 @@ export default {
 }
 </script>
 <script setup>
-import { Sunny, Moon } from '@element-plus/icons-vue'
-import { storeToRefs } from 'pinia'
-import { useDark, useToggle } from '@vueuse/core'
-import { usePageStore } from '@/stores/page'
-
-const store = usePageStore()
-const { language, windowWidth, windowHeight } = storeToRefs(store)
-const { toggle } = store
-
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+import HeaderBar from '@/components/HeaderBar/index.vue'
 </script>
 
 <style scoped lang="scss">

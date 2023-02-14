@@ -1,0 +1,13 @@
+.header-button {
+  &:focus,
+  &:active {
+    background-color: unset !important;
+  }
+  &:hover {
+    background-color: var(--el-fill-color-light) !important;
+  }
+}
+
+.user-bar {
+  cursor: pointer;
+}

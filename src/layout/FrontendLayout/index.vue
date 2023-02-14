@@ -5,7 +5,7 @@
   <div class="frontend-container center-x">
     <router-view />
   </div>
-  <!-- <div class="frontend-footer center">FrontendFooter</div> -->
+  <div class="frontend-footer center">FrontendFooter</div>
 </template>
 
 <script>

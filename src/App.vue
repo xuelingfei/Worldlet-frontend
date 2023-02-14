@@ -8,7 +8,6 @@
   </template>
   <template v-else>
     <el-config-provider :size="size" :locale="locale">
-      {{ windowWidth }}|{{ windowHeight }}
       <router-view />
     </el-config-provider>
   </template>

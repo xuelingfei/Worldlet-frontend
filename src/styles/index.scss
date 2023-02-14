@@ -1,11 +1,5 @@
 // import dark theme
-@use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *;
-html.dark {
-  img,
-  .dark-img-bg {
-    filter: brightness(0.8) saturate(1.25);
-  }
-}
+@use '@/styles/dark/css-vars.scss' as *;
 
 html,
 body,
@@ -26,6 +20,12 @@ body {
 // 弹性布局
 .flex {
   display: flex;
+}
+
+.flex-between {
+  @extend .flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 // 自身居中

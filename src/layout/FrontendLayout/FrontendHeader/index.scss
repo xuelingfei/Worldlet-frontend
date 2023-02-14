@@ -1,7 +1,15 @@
-.backend-header {
-  background-color: #fff;
-}
+@import '@/styles/variables.scss';
 
-.flex-grow {
-  flex-grow: 1;
+.header-box {
+  width: $container-width;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .fronted-favicon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
 }
