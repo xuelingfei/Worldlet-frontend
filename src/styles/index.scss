@@ -21,7 +21,6 @@ body {
 .flex {
   display: flex;
 }
-
 .flex-between {
   @extend .flex;
   justify-content: space-between;
@@ -58,6 +57,29 @@ body {
 .flex-center-y {
   @extend .flex;
   align-items: center;
+}
+
+// 单/多行省略
+.one-line {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.two-line {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.three-line {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 // Frontend

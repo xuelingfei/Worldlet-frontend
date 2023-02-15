@@ -10,6 +10,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import { createStyleImportPlugin, ElementPlusResolve } from 'vite-plugin-style-import'
+import svgLoader from 'vite-svg-loader'
 
 // https://cn.vitejs.dev/config/
 export default defineConfig({
@@ -50,5 +51,6 @@ export default defineConfig({
     createStyleImportPlugin({
       resolves: [ElementPlusResolve()],
     }),
+    svgLoader(),
   ],
 })

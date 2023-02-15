@@ -1,11 +1,8 @@
 @import '@/styles/variables.scss';
 
 .header-box {
-  width: $container-width;
+  width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
   .fronted-favicon {
     width: 50px;

@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore, acceptHMRUpdate } from 'pinia'
-import { useDark, useToggle, useWindowSize } from '@vueuse/core'
+import { useDark, useToggle, useFullscreen, useWindowSize } from '@vueuse/core'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import en from 'element-plus/dist/locale/en.mjs'
 
@@ -9,14 +9,17 @@ export const usePageStore = defineStore(
   () => {
     // 语言
     const language = ref('En')
-    const locale = computed(() => (language.value === 'En' ? zhCn : en))
+    const locale = computed(() => (language.value === 'zh-cn' ? zhCn : en))
     function toggleLanguage() {
-      language.value = language.value === 'En' ? '中' : 'En'
+      language.value = language.value === 'zh-cn' ? 'en' : 'zh-cn'
     }
 
     // 深色模式
     const isDark = useDark()
     const toggleDark = useToggle(isDark)
+
+    // 全屏
+    const { isFullscreen, toggle: toggleFullscreen } = useFullscreen()
 
     // 组件尺寸
     const { width, height } = useWindowSize()
@@ -41,7 +44,19 @@ export const usePageStore = defineStore(
 
     // 后台侧边栏展开状态
 
-    return { language, locale, size, sizeNum, windowWidth: width, windowHeight: height, toggleLanguage, toggleDark }
+    return {
+      language,
+      locale,
+      isDark,
+      isFullscreen,
+      size,
+      sizeNum,
+      windowWidth: width,
+      windowHeight: height,
+      toggleLanguage,
+      toggleDark,
+      toggleFullscreen,
+    }
   },
   { persist: true },
 )

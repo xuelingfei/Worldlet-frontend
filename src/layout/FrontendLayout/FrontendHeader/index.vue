@@ -1,9 +1,9 @@
 <template>
-  <div class="header-box center-x flex-between">
+  <div class="header-box flex-between">
     <div class="header-left">
       <img class="fronted-favicon" src="/favicon.ico" alt="" />
     </div>
-    <header-bar source="fronted" />
+    <header-bar source="frontend" />
   </div>
 </template>
 
