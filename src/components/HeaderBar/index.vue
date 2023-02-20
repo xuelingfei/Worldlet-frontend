@@ -1,7 +1,9 @@
 <template>
   <el-space class="header-bar">
     <el-button text round class="header-button">
-      <el-icon :size="sizeNum"><ChatRound /></el-icon>
+      <el-badge :value="2">
+        <el-icon :size="sizeNum"><ChatRound /></el-icon>
+      </el-badge>
     </el-button>
     <el-button text round class="header-button" @click="toggleLanguage">
       <el-icon :size="sizeNum">

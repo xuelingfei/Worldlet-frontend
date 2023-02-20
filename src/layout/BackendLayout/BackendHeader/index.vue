@@ -1,8 +1,8 @@
 <template>
   <div class="header-left">
     <el-icon :size="sizeNum" class="header-icon" @click="toggleCollapse">
-      <SvgFold v-show="isCollapse" />
-      <SvgExpand v-show="!isCollapse" />
+      <SvgFold v-show="!isCollapse" />
+      <SvgExpand v-show="isCollapse" />
     </el-icon>
   </div>
   <header-bar source="backend" />

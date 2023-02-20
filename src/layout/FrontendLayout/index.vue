@@ -1,17 +1,19 @@
 <template>
-  <div class="frontend-header center-x">
-    <div class="content-box center-x">
-      <frontend-header />
+  <div class="frontend-layout">
+    <div class="frontend-header center-x">
+      <div class="content-box center-x">
+        <frontend-header />
+      </div>
     </div>
-  </div>
-  <div class="frontend-container center-x">
-    <div class="content-box center-x">
-      <router-view />
+    <div class="frontend-container center-x">
+      <div class="content-box center-x">
+        <router-view />
+      </div>
     </div>
-  </div>
-  <div class="frontend-footer center-x">
-    <div class="content-box center-x">
-      <footer-bar />
+    <div class="frontend-footer center-x">
+      <div class="content-box center-x">
+        <footer-bar />
+      </div>
     </div>
   </div>
 </template>

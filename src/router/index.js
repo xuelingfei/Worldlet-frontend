@@ -12,17 +12,22 @@ const routes = [
       {
         path: '',
         name: 'frontend-home',
+        // route level code-splitting
+        // this generates a separate chunk (About.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
         component: () => import('@/views/frontend-home/index.vue'),
       },
+      {
+        path: '/account-book',
+        name: 'account-book',
+        component: () => import('@/views/account-book/index.vue'),
+      },
+      {
+        path: '/personal-center',
+        name: 'personal-center',
+        component: () => import('@/views/personal-center/index.vue'),
+      },
     ],
-  },
-  {
-    path: '/account-book',
-    name: 'account-book',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('@/views/account-book/index.vue'),
   },
   {
     path: '/back',
