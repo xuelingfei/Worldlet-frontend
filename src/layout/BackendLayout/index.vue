@@ -1,27 +1,25 @@
 <template>
-  <a-layout has-sider class="backend-layout">
-    <backend-sider />
-    <a-layout>
-      <backend-header />
-      <a-layout-content>
-        <router-view />
-      </a-layout-content>
-      <!-- <a-layout-footer>Footer</a-layout-footer> -->
-    </a-layout>
-  </a-layout>
+  <div class="backend-layout flex">
+    <div class="backend-side"><backend-side /></div>
+    <div class="backend-main">
+      <div class="backend-header flex-between"><backend-header /></div>
+      <div class="backend-container"><router-view /></div>
+      <div class="backend-footer"><footer-bar /></div>
+    </div>
+  </div>
 </template>
 
 <script>
-import BackendSider from "./BackendSider/index.vue"
-import BackendHeader from "./BackendHeader/index.vue"
-
 export default {
-  name: "BackendLayout",
-  components: { BackendSider, BackendHeader },
-  setup() {},
+  name: 'BackendLayout',
 }
+</script>
+<script setup>
+import BackendSide from '@/layout/BackendLayout/BackendSide/index.vue'
+import BackendHeader from '@/layout/BackendLayout/BackendHeader/index.vue'
+import FooterBar from '@/components/FooterBar/index.vue'
 </script>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

@@ -43,6 +43,10 @@ export const usePageStore = defineStore(
     })
 
     // 后台侧边栏展开状态
+    const isCollapse = ref(true)
+    function toggleCollapse() {
+      isCollapse.value = !isCollapse.value
+    }
 
     return {
       language,
@@ -53,9 +57,11 @@ export const usePageStore = defineStore(
       sizeNum,
       windowWidth: width,
       windowHeight: height,
+      isCollapse,
       toggleLanguage,
       toggleDark,
       toggleFullscreen,
+      toggleCollapse,
     }
   },
   { persist: true },

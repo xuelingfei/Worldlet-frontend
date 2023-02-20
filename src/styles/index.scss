@@ -1,4 +1,3 @@
-// import dark theme
 @use '@/styles/dark/css-vars.scss' as *;
 
 html,
@@ -10,10 +9,49 @@ body,
   padding: 0;
 }
 
+// 字号
 body {
-  font-size: 14px;
-  @media screen and (max-width: 1366px) {
-    font-size: 12px;
+  font-size: 14px !important;
+}
+.smaller {
+  font-size: 12px !important;
+}
+.small {
+  font-size: 13px !important;
+}
+.base {
+  font-size: 14px !important;
+}
+.medium {
+  font-size: 16px !important;
+}
+.large {
+  font-size: 18px !important;
+}
+.larger {
+  font-size: 20px !important;
+}
+@media screen and (max-width: 1366px) {
+  body {
+    font-size: 12px !important;
+  }
+  .smaller {
+    font-size: 10px !important;
+  }
+  .small {
+    font-size: 11px !important;
+  }
+  .base {
+    font-size: 12px !important;
+  }
+  .medium {
+    font-size: 14px !important;
+  }
+  .large {
+    font-size: 16px !important;
+  }
+  .larger {
+    font-size: 18px !important;
   }
 }
 

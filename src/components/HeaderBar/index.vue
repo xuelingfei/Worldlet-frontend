@@ -15,7 +15,7 @@
         <Sunny v-show="!isDark" />
       </el-icon>
     </el-button>
-    <el-button text round class="header-button" @click="toggleFullscreen()">
+    <el-button text round class="header-button" @click="toggleFullscreen">
       <el-icon :size="sizeNum">
         <SvgFullscreen v-show="!isFullscreen" />
         <SvgFullscreenExit v-show="isFullscreen" />
@@ -40,8 +40,8 @@
       </template>
     </el-dropdown>
     <template v-else>
-      <el-button text round class="header-button">登录</el-button>
-      <el-button text round class="header-button">注册</el-button>
+      <el-button text round class="header-button medium">登录</el-button>
+      <el-button text round class="header-button medium">注册</el-button>
     </template>
   </el-space>
 </template>
@@ -61,6 +61,7 @@ import SvgFrontend from '@/assets/svg/frontend.svg'
 import SvgBackend from '@/assets/svg/backend.svg'
 import SvgExit from '@/assets/svg/exit.svg'
 import { ChatRound, Sunny, Moon, ArrowDown, User } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 import { useAuthStore } from '@/stores/auth'
@@ -78,8 +79,11 @@ const { toggleLanguage, toggleDark, toggleFullscreen } = pageStore
 
 const authStore = useAuthStore()
 const { avatar, loggedin } = storeToRefs(authStore)
+const router = useRouter()
 const handleCommand = (command) => {
-  console.log(`click on item ${command}`)
+  if (command !== 'exit') {
+    router.push({ name: command })
+  }
 }
 </script>
 

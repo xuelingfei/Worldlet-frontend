@@ -1,3 +1,42 @@
+@use '@/styles/variables.scss' as *;
+
 .backend-layout {
-  height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .backend-side {
+    position: relative;
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  .backend-main {
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+  }
+}
+
+.backend-header {
+  position: relative;
+  height: $header-height;
+  border-bottom: 1px solid var(--el-border-color);
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.backend-container {
+  position: relative;
+  height: calc(100% - $header-height - $footer-height);
+  box-sizing: border-box;
+  padding: 20px 20px;
+}
+
+.backend-footer {
+  position: relative;
+  height: $footer-height;
+  border-top: 1px solid var(--el-border-color);
+  box-sizing: border-box;
+  padding: 0 20px;
 }
