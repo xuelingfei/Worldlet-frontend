@@ -42,10 +42,10 @@ export const usePageStore = defineStore(
       }
     })
 
-    // 后台侧边栏展开状态
-    const isCollapse = ref(true)
-    function toggleCollapse() {
-      isCollapse.value = !isCollapse.value
+    // 后台侧边栏折叠状态
+    const isCollapsed = ref(false)
+    function toggleCollapsed() {
+      isCollapsed.value = !isCollapsed.value
     }
 
     return {
@@ -57,11 +57,11 @@ export const usePageStore = defineStore(
       sizeNum,
       windowWidth: width,
       windowHeight: height,
-      isCollapse,
+      isCollapsed,
       toggleLanguage,
       toggleDark,
       toggleFullscreen,
-      toggleCollapse,
+      toggleCollapsed,
     }
   },
   { persist: true },

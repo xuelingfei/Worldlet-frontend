@@ -1,8 +1,9 @@
 <template>
+  <div class="logo"></div>
   <el-menu
     default-active="2"
     class="el-menu-vertical-demo"
-    :collapse="isCollapse"
+    :collapse="isCollapsed"
     @open="handleOpen"
     @close="handleClose"
   >
@@ -50,7 +51,7 @@ import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
-const { isCollapse } = storeToRefs(pageStore)
+const { isCollapsed } = storeToRefs(pageStore)
 const handleOpen = (key, keyPath) => {
   console.log(key, keyPath)
 }

@@ -1,8 +1,8 @@
 <template>
   <div class="header-left">
-    <el-icon :size="sizeNum" class="header-icon" @click="toggleCollapse">
-      <SvgFold v-show="!isCollapse" />
-      <SvgExpand v-show="isCollapse" />
+    <el-icon :size="sizeNum" class="header-icon" @click="toggleCollapsed">
+      <SvgFold v-show="!isCollapsed" />
+      <SvgExpand v-show="isCollapsed" />
     </el-icon>
   </div>
   <header-bar source="backend" />
@@ -21,8 +21,8 @@ import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
-const { isCollapse, sizeNum } = storeToRefs(pageStore)
-const { toggleCollapse } = pageStore
+const { isCollapsed, sizeNum } = storeToRefs(pageStore)
+const { toggleCollapsed } = pageStore
 </script>
 
 <style scoped lang="scss">

@@ -123,3 +123,7 @@ body {
 // Frontend
 
 // Backend
+
+:deep(.el-menu) {
+  border-right: none !important;
+}
