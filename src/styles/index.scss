@@ -124,6 +124,8 @@ body {
 
 // Backend
 
-:deep(.el-menu) {
+
+// 覆写 Element Plus 样式
+.el-menu {
   border-right: none !important;
 }
