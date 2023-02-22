@@ -11,4 +11,8 @@
 .user-box {
   padding-left: 15px;
   cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+  }
 }

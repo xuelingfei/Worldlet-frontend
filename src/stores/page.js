@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore, acceptHMRUpdate } from 'pinia'
-import { useDark, useToggle, useFullscreen, useWindowSize } from '@vueuse/core'
+import { useDark, useToggle, useFullscreen, useWindowSize, useNow, useDateFormat } from '@vueuse/core'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import en from 'element-plus/dist/locale/en.mjs'
 
@@ -42,6 +42,9 @@ export const usePageStore = defineStore(
       }
     })
 
+    // 时间
+    const now = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss ddd')
+
     // 后台侧边栏折叠状态
     const isCollapsed = ref(false)
     function toggleCollapsed() {
@@ -57,6 +60,7 @@ export const usePageStore = defineStore(
       sizeNum,
       windowWidth: width,
       windowHeight: height,
+      now,
       isCollapsed,
       toggleLanguage,
       toggleDark,
