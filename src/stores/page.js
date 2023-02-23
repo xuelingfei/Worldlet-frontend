@@ -45,10 +45,16 @@ export const usePageStore = defineStore(
     // 时间
     const now = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss ddd')
 
+    // 底栏隐藏
+    const footerHidden = ref(false)
+    function toggleFooterHidden() {
+      footerHidden.value = !footerHidden.value
+    }
+
     // 后台侧边栏折叠状态
-    const isCollapsed = ref(false)
-    function toggleCollapsed() {
-      isCollapsed.value = !isCollapsed.value
+    const sideCollapsed = ref(false)
+    function toggleSideCollapsed() {
+      sideCollapsed.value = !sideCollapsed.value
     }
 
     return {
@@ -61,11 +67,13 @@ export const usePageStore = defineStore(
       windowWidth: width,
       windowHeight: height,
       now,
-      isCollapsed,
+      footerHidden,
+      sideCollapsed,
       toggleLanguage,
       toggleDark,
       toggleFullscreen,
-      toggleCollapsed,
+      toggleFooterHidden,
+      toggleSideCollapsed,
     }
   },
   { persist: true },

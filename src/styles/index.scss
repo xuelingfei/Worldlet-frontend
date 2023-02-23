@@ -1,4 +1,5 @@
 @use '@/styles/dark/css-vars.scss' as *;
+@use '@/styles/variables.scss' as *;
 
 html,
 body,
@@ -58,6 +59,10 @@ body {
 // 弹性布局
 .flex {
   display: flex;
+}
+.flex-column {
+  @extend .flex;
+  flex-direction: column;
 }
 .flex-between {
   @extend .flex;
@@ -121,9 +126,17 @@ body {
 }
 
 // Frontend
+.frontend-content {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: $container-width;
+  height: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
 
 // Backend
-
 
 // 覆写 Element Plus 样式
 .el-menu {

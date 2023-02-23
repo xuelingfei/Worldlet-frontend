@@ -1,7 +1,10 @@
 <template>
-  <div class="frontend-page">
-    <el-row>敬请期待</el-row>
-  </div>
+  <el-scrollbar>
+    <div class="frontend-content">
+      <p v-for="item in 60" :key="item" class="scrollbar-demo-item">{{ item }}</p>
+      <el-backtop :right="100" :bottom="100" />
+    </div>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -22,4 +25,14 @@ export default {
 
 <style scoped lang="scss">
 @import './index.scss';
+.scrollbar-demo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+}
 </style>

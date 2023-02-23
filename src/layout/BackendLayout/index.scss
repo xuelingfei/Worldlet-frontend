@@ -12,14 +12,14 @@
     flex-shrink: 0;
     height: 100%;
     width: $side-width;
+    transition: width 1s ease;
     border-right: 1px solid var(--el-border-color);
     box-sizing: border-box;
-    transition: width 1s ease;
     overflow: hidden;
-  }
 
-  .backend-side.collapsed {
-    width: $side-collapsed-width;
+    &.collapsed {
+      width: $side-collapsed-width;
+    }
   }
 
   .backend-main {

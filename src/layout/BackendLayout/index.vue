@@ -1,6 +1,6 @@
 <template>
   <div class="backend-layout flex">
-    <div :class="['backend-side', isCollapsed ? 'collapsed' : '']"><backend-side /></div>
+    <div :class="['backend-side', sideCollapsed ? 'collapsed' : '']"><backend-side /></div>
     <div class="backend-main">
       <div class="backend-header flex-between"><backend-header /></div>
       <div class="backend-container"><router-view /></div>
@@ -22,7 +22,7 @@ import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
-const { isCollapsed } = storeToRefs(pageStore)
+const { sideCollapsed } = storeToRefs(pageStore)
 </script>
 
 <style scoped lang="scss">
