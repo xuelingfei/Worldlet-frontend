@@ -37,6 +37,7 @@
           <el-dropdown-item v-if="props.source === 'frontend'" command="backend-home" :icon="SvgBackend">
             进入后台
           </el-dropdown-item>
+          <el-dropdown-item command="exit" :icon="SvgDownCircle">隐藏底栏</el-dropdown-item>
           <el-dropdown-item command="exit" :icon="SvgExit">退出</el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -61,6 +62,8 @@ import SvgFullscreenExit from '@/assets/svg/fullscreen-exit.svg'
 import SvgUser from '@/assets/svg/user.svg'
 import SvgFrontend from '@/assets/svg/frontend.svg'
 import SvgBackend from '@/assets/svg/backend.svg'
+import SvgUpCircle from '@/assets/svg/up-circle.svg'
+import SvgDownCircle from '@/assets/svg/down-circle.svg'
 import SvgExit from '@/assets/svg/exit.svg'
 import { ChatRound, Sunny, Moon, ArrowDown, User } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
