@@ -1,7 +1,13 @@
 <template>
   <div class="footer-bar flex-between">
-    <div>{{ windowWidth }} × {{ windowHeight }}</div>
-    <div>{{ now }}</div>
+    <el-space :size="5">
+      <el-icon><Monitor /></el-icon>
+      <div>{{ windowWidth }} × {{ windowHeight }}</div>
+    </el-space>
+    <el-space :size="5">
+      <el-icon><Clock /></el-icon>
+      <div>{{ now }}</div>
+    </el-space>
   </div>
 </template>
 
@@ -11,6 +17,7 @@ export default {
 }
 </script>
 <script setup>
+import { Monitor, Clock } from '@element-plus/icons-vue'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 

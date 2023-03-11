@@ -8,14 +8,14 @@ export const usePageStore = defineStore(
   'page',
   () => {
     // 语言
-    const language = ref('En')
+    const language = ref('zh-cn')
     const locale = computed(() => (language.value === 'zh-cn' ? zhCn : en))
     function toggleLanguage() {
       language.value = language.value === 'zh-cn' ? 'en' : 'zh-cn'
     }
 
-    // 深色模式
-    const isDark = useDark()
+    // 暗黑模式
+    const isDark = useDark({ initialValue: 'light' })
     const toggleDark = useToggle(isDark)
 
     // 全屏

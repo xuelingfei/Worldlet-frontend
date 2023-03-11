@@ -37,7 +37,9 @@
           <el-dropdown-item v-if="props.source === 'frontend'" command="backend-home" :icon="SvgBackend">
             进入后台
           </el-dropdown-item>
-          <el-dropdown-item command="exit" :icon="SvgDownCircle">隐藏底栏</el-dropdown-item>
+          <el-dropdown-item command="hideFooter" :icon="footerHidden ? SvgUpCircle : SvgDownCircle">
+            {{ footerHidden ? '显示' : '隐藏' }}底栏
+          </el-dropdown-item>
           <el-dropdown-item command="exit" :icon="SvgExit">退出</el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -79,14 +81,18 @@ const props = defineProps({
 })
 
 const pageStore = usePageStore()
-const { language, isDark, isFullscreen, sizeNum } = storeToRefs(pageStore)
-const { toggleLanguage, toggleDark, toggleFullscreen } = pageStore
+const { language, isDark, isFullscreen, footerHidden, sizeNum } = storeToRefs(pageStore)
+const { toggleLanguage, toggleDark, toggleFullscreen, toggleFooterHidden } = pageStore
 
 const authStore = useAuthStore()
 const { avatar, loggedin } = storeToRefs(authStore)
 const router = useRouter()
 const handleCommand = (command) => {
-  if (command !== 'exit') {
+  if (command === 'hideFooter') {
+    toggleFooterHidden()
+  } else if (command === 'exit') {
+    console.log('exit')
+  } else {
     router.push({ name: command })
   }
 }

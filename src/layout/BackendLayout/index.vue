@@ -1,10 +1,12 @@
 <template>
   <div class="backend-layout flex">
     <div :class="['backend-side', sideCollapsed ? 'collapsed' : '']"><backend-side /></div>
-    <div class="backend-main">
+    <div class="backend-main flex-column">
       <div class="backend-header flex-between"><backend-header /></div>
       <div class="backend-container"><router-view /></div>
-      <div class="backend-footer"><footer-bar /></div>
+      <div :class="['backend-footer', 'center-x', footerHidden ? 'hidden' : '']">
+        <footer-bar />
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +24,7 @@ import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
-const { sideCollapsed } = storeToRefs(pageStore)
+const { sideCollapsed, footerHidden } = storeToRefs(pageStore)
 </script>
 
 <style scoped lang="scss">
