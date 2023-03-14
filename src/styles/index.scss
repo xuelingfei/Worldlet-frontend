@@ -10,6 +10,17 @@ body,
   padding: 0;
 }
 
+// 朴素链接（无下划线和悬浮、点击等效果）
+.plain-link {
+  text-decoration: none;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: inherit;
+  }
+}
+
 // 字号
 body {
   font-size: 14px !important;
@@ -64,9 +75,24 @@ body {
   @extend .flex;
   flex-direction: column;
 }
+.flex-left {
+  @extend .flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-right {
+  @extend .flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .flex-between {
   @extend .flex;
   justify-content: space-between;
+  align-items: center;
+}
+.flex-around {
+  @extend .flex;
+  justify-content: space-around;
   align-items: center;
 }
 

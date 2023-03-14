@@ -1,11 +1,11 @@
 <template>
   <div class="footer-bar flex-between">
     <el-space :size="5">
-      <el-icon><Monitor /></el-icon>
+      <el-icon class="medium"><Monitor /></el-icon>
       <div>{{ windowWidth }} × {{ windowHeight }}</div>
     </el-space>
     <el-space :size="5">
-      <el-icon><Clock /></el-icon>
+      <el-icon class="medium"><Clock /></el-icon>
       <div>{{ now }}</div>
     </el-space>
   </div>

@@ -1,5 +1,14 @@
 <template>
-  <div class="logo"></div>
+  <div class="side-header flex-left">
+    <router-link to="/" class="plain-link">
+      <div class="side-logo"></div>
+    </router-link>
+    <transition name="el-fade-in">
+      <router-link to="/backend" class="plain-link">
+        <span v-show="!sideCollapsed" class="larger">Worldlet</span>
+      </router-link>
+    </transition>
+  </div>
   <el-menu
     default-active="2"
     class="el-menu-vertical-demo"

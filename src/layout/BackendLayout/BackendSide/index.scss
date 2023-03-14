@@ -1,0 +1,15 @@
+@use '@/styles/variables.scss' as *;
+
+.side-header {
+  position: relative;
+  height: $header-height;
+  box-sizing: border-box;
+
+  .side-logo {
+    position: relative;
+    width: $side-collapsed-width;
+    min-height: 40px;
+    background: url(/favicon.ico) no-repeat center;
+    background-size: 40px 40px;
+  }
+}
