@@ -95,6 +95,24 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+.flex-top {
+  @extend .flex;
+  align-items: flex-start;
+}
+.flex-bottom {
+  @extend .flex;
+  align-items: flex-end;
+}
+.flex-baseline {
+  @extend .flex;
+  align-items: baseline;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.flex-not-shrink {
+  flex-shrink: 0;
+}
 
 // 自身居中
 .center {

@@ -1,6 +1,6 @@
 <template>
   <div class="footer-bar flex-between">
-    <el-space :size="5">
+    <el-space :size="5" style="align-items: initial">
       <el-icon class="medium"><Monitor /></el-icon>
       <div>{{ windowWidth }} × {{ windowHeight }}</div>
     </el-space>

@@ -9,43 +9,31 @@
       </router-link>
     </transition>
   </div>
-  <el-menu
-    default-active="2"
-    class="el-menu-vertical-demo"
-    :collapse="sideCollapsed"
-    @open="handleOpen"
-    @close="handleClose"
-  >
-    <el-sub-menu index="1">
-      <template #title>
-        <el-icon><location /></el-icon>
-        <span>Navigator One</span>
+  <el-menu :default-active="activeMenu" :collapse="sideCollapsed" :router="true">
+    <template v-for="menu in menuList" :key="menu.id">
+      <template v-if="menu.children && menu.children.length">
+        <el-sub-menu :key="menu.id" :index="String(menu.id)">
+          <template #title>
+            <el-icon><document /></el-icon>
+            <span>{{ menu.label }}</span>
+          </template>
+          <el-menu-item v-for="item in menu.children" :key="item.id" :index="String(item.id)" :route="item.route">
+            <template #title>
+              <el-icon><setting /></el-icon>
+              <span>{{ item.label }}</span>
+            </template>
+          </el-menu-item>
+        </el-sub-menu>
       </template>
-      <el-menu-item-group>
-        <template #title><span>Group One</span></template>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">item three</el-menu-item>
-      </el-menu-item-group>
-      <el-sub-menu index="1-4">
-        <template #title><span>item four</span></template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-    <el-menu-item index="2">
-      <el-icon><icon-menu /></el-icon>
-      <template #title>Navigator Two</template>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <el-icon><document /></el-icon>
-      <template #title>Navigator Three</template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <el-icon><setting /></el-icon>
-      <template #title>Navigator Four</template>
-    </el-menu-item>
+      <template v-else>
+        <el-menu-item :key="menu.id" :index="String(menu.id)" :route="menu.route">
+          <el-icon><document /></el-icon>
+          <template #title>
+            <span>{{ menu.label }}</span>
+          </template>
+        </el-menu-item>
+      </template>
+    </template>
   </el-menu>
 </template>
 
@@ -55,18 +43,23 @@ export default {
 }
 </script>
 <script setup>
-import { Document, Menu as IconMenu, Location, Setting } from '@element-plus/icons-vue'
+import { Document, Setting } from '@element-plus/icons-vue'
+
+import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
 const { sideCollapsed } = storeToRefs(pageStore)
-const handleOpen = (key, keyPath) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key, keyPath) => {
-  console.log(key, keyPath)
-}
+
+const activeMenu = ref('99')
+
+const menuList = ref([
+  { id: 91, label: 'Worldlet', route: { path: '/' } },
+  { id: 92, label: 'AccountBook', route: { path: '/account-book' } },
+  { id: 94, label: 'Example', children: [{ id: 99, label: 'Backend', route: { path: '/backend' } }] },
+  { id: 93, label: 'PersonalCenter', route: { path: '/personal-center' } },
+])
 </script>
 
 <style scoped lang="scss">
