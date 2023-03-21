@@ -8,17 +8,17 @@
         <span class="larger">Worldlet</span>
       </router-link> -->
       <el-menu :default-active="activeMenu" mode="horizontal" :router="true" class="large">
-        <template v-for="menu in menuList" :key="menu.id">
+        <template v-for="menu in frontendMenuList" :key="menu.id">
           <template v-if="menu.children && menu.children.length">
             <el-sub-menu :key="menu.id" :index="String(menu.id)">
-              <template #title>{{ menu.label }}</template>
-              <el-menu-item v-for="item in menu.children" :key="item.id" :index="String(item.id)" :route="item.route">
-                {{ item.label }}
+              <template #title>{{ menu.name }}</template>
+              <el-menu-item v-for="item in menu.children" :key="item.id" :index="item.path">
+                {{ item.name }}
               </el-menu-item>
             </el-sub-menu>
           </template>
           <template v-else>
-            <el-menu-item :key="menu.id" :index="String(menu.id)" :route="menu.route">{{ menu.label }}</el-menu-item>
+            <el-menu-item :key="menu.id" :index="menu.path">{{ menu.name }}</el-menu-item>
           </template>
         </template>
       </el-menu>
@@ -35,16 +35,23 @@ export default {
 <script setup>
 import HeaderBar from '@/components/HeaderBar/index.vue'
 
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores/user'
 
-const activeMenu = ref('99')
+const userStore = useUserStore()
+const { frontend: frontendMenuList } = storeToRefs(userStore)
 
-const menuList = ref([
-  { id: 91, label: 'Worldlet', route: { path: '/' } },
-  { id: 92, label: 'AccountBook', route: { path: '/account-book' } },
-  { id: 94, label: 'Example', children: [{ id: 99, label: 'Backend', route: { path: '/back' } }] },
-  { id: 93, label: 'PersonalCenter', route: { path: '/personal-center' } },
-])
+const route = useRoute()
+const activeMenu = ref(route.path)
+watch(
+  () => route.path,
+  (newPath) => {
+    activeMenu.value = newPath
+  },
+  // { immediate: true }
+)
 </script>
 
 <style scoped lang="scss">

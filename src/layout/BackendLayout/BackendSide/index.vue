@@ -10,26 +10,35 @@
     </transition>
   </div>
   <el-menu :default-active="activeMenu" :collapse="sideCollapsed" :router="true">
-    <template v-for="menu in menuList" :key="menu.id">
+    <template v-for="menu in backendMenuList" :key="menu.id">
       <template v-if="menu.children && menu.children.length">
         <el-sub-menu :key="menu.id" :index="String(menu.id)">
           <template #title>
-            <el-icon><document /></el-icon>
-            <span>{{ menu.label }}</span>
+            <el-icon>
+              <img v-if="menu.icon" class="menu-icon" :src="menu.icon" alt="" />
+              <SvgBackend v-else />
+            </el-icon>
+            <span>{{ menu.name }}</span>
           </template>
-          <el-menu-item v-for="item in menu.children" :key="item.id" :index="String(item.id)" :route="item.route">
+          <el-menu-item v-for="item in menu.children" :key="item.id" :index="item.path">
             <template #title>
-              <el-icon><setting /></el-icon>
-              <span>{{ item.label }}</span>
+              <el-icon>
+                <img v-if="item.icon" class="menu-icon" :src="item.icon" alt="" />
+                <SvgBackend v-else />
+              </el-icon>
+              <span>{{ item.name }}</span>
             </template>
           </el-menu-item>
         </el-sub-menu>
       </template>
       <template v-else>
-        <el-menu-item :key="menu.id" :index="String(menu.id)" :route="menu.route">
-          <el-icon><document /></el-icon>
+        <el-menu-item :key="menu.id" :index="menu.path">
+          <el-icon>
+            <img v-if="menu.icon" class="menu-icon" :src="menu.icon" alt="" />
+            <SvgBackend v-else />
+          </el-icon>
           <template #title>
-            <span>{{ menu.label }}</span>
+            <span>{{ menu.name }}</span>
           </template>
         </el-menu-item>
       </template>
@@ -43,23 +52,29 @@ export default {
 }
 </script>
 <script setup>
-import { Document, Setting } from '@element-plus/icons-vue'
+import SvgBackend from '@/assets/svg/backend.svg'
 
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores/user'
 import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
 const { sideCollapsed } = storeToRefs(pageStore)
 
-const activeMenu = ref('99')
+const userStore = useUserStore()
+const { backend: backendMenuList } = storeToRefs(userStore)
 
-const menuList = ref([
-  { id: 91, label: 'Worldlet', route: { path: '/' } },
-  { id: 92, label: 'AccountBook', route: { path: '/account-book' } },
-  { id: 94, label: 'Example', children: [{ id: 99, label: 'Backend', route: { path: '/backend' } }] },
-  { id: 93, label: 'PersonalCenter', route: { path: '/personal-center' } },
-])
+const route = useRoute()
+const activeMenu = ref(route.path)
+watch(
+  () => route.path,
+  (newPath) => {
+    activeMenu.value = newPath
+  },
+  // { immediate: true }
+)
 </script>
 
 <style scoped lang="scss">

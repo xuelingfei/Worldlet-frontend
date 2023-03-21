@@ -6,7 +6,11 @@
       </div>
     </div>
     <div class="frontend-container">
-      <router-view />
+      <el-scrollbar>
+        <div class="frontend-content">
+          <router-view />
+        </div>
+      </el-scrollbar>
     </div>
     <div :class="['frontend-footer', 'center-x', footerHidden ? 'hidden' : '']">
       <div class="frontend-content">

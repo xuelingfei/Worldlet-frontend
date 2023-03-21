@@ -186,3 +186,8 @@ body {
 .el-menu {
   border-right: none !important;
 }
+
+.el-space__item:empty {
+  margin: 0 !important;
+  padding: 0 !important;
+}

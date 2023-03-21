@@ -1,16 +1,14 @@
 <template>
-  <div>个人中心</div>
+  <div>PersonalCenter</div>
 </template>
 
 <script>
 export default {
-  name: "PersonalCenter",
-  components: {},
-  setup() {
-    return {}
-  },
+  name: 'PersonalCenter',
 }
 </script>
+<script setup></script>
+
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>
