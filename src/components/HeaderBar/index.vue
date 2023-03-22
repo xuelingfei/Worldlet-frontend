@@ -39,11 +39,11 @@
       </template>
     </el-dropdown>
     <template v-else>
-      <el-button text round class="header-button medium" @click="showDialog = true">登录</el-button>
-      <el-button text round class="header-button medium">注册</el-button>
+      <el-button text round class="header-button medium" @click="showAuthDialog('login')">登录</el-button>
+      <el-button text round class="header-button medium" @click="showAuthDialog('register')">注册</el-button>
     </template>
   </el-space>
-  <AuthDialog v-model:show="showDialog" @close="showDialog = false" />
+  <AuthDialog v-model:visible="authDialogVisible" v-model:action="authAction" />
 </template>
 
 <script>
@@ -59,7 +59,9 @@ import SvgFullscreenExit from '@/assets/svg/fullscreen-exit.svg'
 import SvgUser from '@/assets/svg/user.svg'
 import SvgExit from '@/assets/svg/exit.svg'
 import { ChatRound, Sunny, Moon, ArrowDown, ArrowUp, User } from '@element-plus/icons-vue'
-import { ref } from 'vue'
+import AuthDialog from '@/components/AuthDialog/index.vue'
+
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
@@ -87,7 +89,15 @@ const handleCommand = (command) => {
   }
 }
 
-const showDialog = ref(false)
+const authDialogVisible = ref(false)
+const authAction = ref('')
+const showAuthDialog = (action) => {
+  authDialogVisible.value = true
+  authAction.value = action
+}
+watch(authDialogVisible, (newVal) => {
+  console.log('UserLog', newVal)
+})
 </script>
 
 <style scoped lang="scss">

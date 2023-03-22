@@ -176,7 +176,7 @@ body {
   transform: translateX(-50%);
   width: $container-width;
   height: 100%;
-  padding: 0 10px;
+  // padding: 0 10px;
   box-sizing: border-box;
 }
 
@@ -190,4 +190,40 @@ body {
 .el-space__item:empty {
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.auth-dialog {
+  width: 430px !important;
+  height: 520px !important;
+
+  .el-dialog__body {
+    @extend .medium;
+    line-height: 1.5;
+  }
+
+  .el-tabs__item {
+    @extend .large;
+    line-height: 1.5;
+  }
+
+  .auth-row {
+    margin: 10px 0 20px;
+    width: 100%;
+    height: 40px;
+
+    .el-input {
+      @extend .medium;
+      height: 100%;
+    }
+
+    .el-button {
+      width: 100%;
+      height: 100%;
+    }
+
+    &.low {
+      @extend .base;
+      height: 36px;
+    }
+  }
 }
