@@ -52,13 +52,6 @@ export default {
 }
 </script>
 <script setup>
-import SvgZh from '@/assets/svg/language-zh.svg'
-import SvgEn from '@/assets/svg/language-en.svg'
-import SvgFullscreen from '@/assets/svg/fullscreen.svg'
-import SvgFullscreenExit from '@/assets/svg/fullscreen-exit.svg'
-import SvgUser from '@/assets/svg/user.svg'
-import SvgExit from '@/assets/svg/exit.svg'
-import { ChatRound, Sunny, Moon, ArrowDown, ArrowUp, User } from '@element-plus/icons-vue'
 import AuthDialog from '@/components/AuthDialog/index.vue'
 
 import { ref, watch } from 'vue'

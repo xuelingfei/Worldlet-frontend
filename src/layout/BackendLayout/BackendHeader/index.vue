@@ -14,8 +14,6 @@ export default {
 }
 </script>
 <script setup>
-import SvgFold from '@/assets/svg/fold.svg'
-import SvgExpand from '@/assets/svg/expand.svg'
 import HeaderBar from '@/components/HeaderBar/index.vue'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'

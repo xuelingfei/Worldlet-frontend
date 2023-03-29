@@ -52,8 +52,6 @@ export default {
 }
 </script>
 <script setup>
-import SvgBackend from '@/assets/svg/backend.svg'
-
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'

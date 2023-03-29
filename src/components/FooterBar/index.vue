@@ -17,7 +17,6 @@ export default {
 }
 </script>
 <script setup>
-import { Monitor, Clock } from '@element-plus/icons-vue'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 
