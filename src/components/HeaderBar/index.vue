@@ -26,10 +26,6 @@
     <el-dropdown v-if="loggedin" @command="handleCommand">
       <div class="user-box flex-center-y">
         <el-avatar :icon="avatar ? avatar : SvgUser" />
-        <el-icon class="hidden-icon" @click="toggleFooterHidden">
-          <ArrowDown v-show="!footerHidden" />
-          <ArrowUp v-show="footerHidden" />
-        </el-icon>
       </div>
       <template #dropdown>
         <el-dropdown-menu>
@@ -68,8 +64,8 @@ defineProps({
 })
 
 const pageStore = usePageStore()
-const { language, isDark, isFullscreen, footerHidden, sizeNum } = storeToRefs(pageStore)
-const { toggleLanguage, toggleDark, toggleFullscreen, toggleFooterHidden } = pageStore
+const { language, isDark, isFullscreen, sizeNum } = storeToRefs(pageStore)
+const { toggleLanguage, toggleDark, toggleFullscreen } = pageStore
 
 const userStore = useUserStore()
 const { avatar, loggedin } = storeToRefs(userStore)

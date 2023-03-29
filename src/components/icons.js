@@ -7,7 +7,20 @@ import SvgFullscreen from '@/assets/svg/fullscreen.svg'
 import SvgFullscreenExit from '@/assets/svg/fullscreen-exit.svg'
 import SvgUser from '@/assets/svg/user.svg'
 import SvgZh from '@/assets/svg/language-zh.svg'
-import { ArrowDown, ArrowUp, ChatRound, Clock, Monitor, Moon, Sunny, User } from '@element-plus/icons-vue'
+import {
+  ArrowDown,
+  ArrowUp,
+  ChatRound,
+  Clock,
+  Download,
+  Help,
+  Monitor,
+  Moon,
+  Sunny,
+  Top,
+  Upload,
+  User,
+} from '@element-plus/icons-vue'
 
 const iconList = [
   { name: 'SvgBackend', component: SvgBackend },
@@ -23,9 +36,13 @@ const iconList = [
   { name: 'ArrowUp', component: ArrowUp },
   { name: 'ChatRound', component: ChatRound },
   { name: 'Clock', component: Clock },
+  { name: 'Download', component: Download },
+  { name: 'Help', component: Help },
   { name: 'Monitor', component: Monitor },
   { name: 'Moon', component: Moon },
   { name: 'Sunny', component: Sunny },
+  { name: 'Top', component: Top },
+  { name: 'Upload', component: Upload },
   { name: 'User', component: User },
 ]
 

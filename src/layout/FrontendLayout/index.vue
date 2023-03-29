@@ -2,7 +2,7 @@
   <div class="frontend-layout flex-column">
     <div class="frontend-header">
       <div class="frontend-content">
-        <frontend-header />
+        <FrontendHeader />
       </div>
     </div>
     <div class="frontend-container">
@@ -10,11 +10,12 @@
         <div class="frontend-content">
           <router-view />
         </div>
+        <ToolBar />
       </el-scrollbar>
     </div>
     <div :class="['frontend-footer', 'center-x', footerHidden ? 'hidden' : '']">
       <div class="frontend-content">
-        <footer-bar />
+        <FooterBar />
       </div>
     </div>
   </div>
@@ -27,6 +28,7 @@ export default {
 </script>
 <script setup>
 import FrontendHeader from '@/layout/FrontendLayout/FrontendHeader/index.vue'
+import ToolBar from '@/components/ToolBar/index.vue'
 import FooterBar from '@/components/FooterBar/index.vue'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'

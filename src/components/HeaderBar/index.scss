@@ -15,17 +15,6 @@
   &:focus-visible {
     outline: none;
   }
-
-  .hidden-icon {
-    position: absolute;
-    right: -5px;
-    bottom: -3px;
-    color: transparent;
-
-    &:hover {
-      color: inherit;
-    }
-  }
 }
 
 :deep(.el-space__item:last-child) {
