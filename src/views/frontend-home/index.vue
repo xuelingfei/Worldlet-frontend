@@ -1,5 +1,5 @@
 <template>
-  <div>FrontendHome</div>
+  <div class="full-height">FrontendHome</div>
 </template>
 
 <script>

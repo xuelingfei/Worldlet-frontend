@@ -1,5 +1,7 @@
 @use '@/styles/variables.scss' as *;
 
+$container-height: calc(100vh - $header-height - $footer-height);
+
 .frontend-layout {
   position: relative;
   width: 100vw;
@@ -18,21 +20,25 @@
   .frontend-container {
     position: relative;
     flex-grow: 1;
-    height: calc(100% - $header-height - $footer-height);
+    height: $container-height;
     overflow: hidden;
+
+    .full-height {
+      height: $container-height;
+    }
   }
 
   .frontend-footer {
     position: relative;
     height: $footer-height;
-    transition: height 1s ease;
+    transition: all 1s ease;
     border-top: 1px solid var(--el-border-color);
     box-sizing: border-box;
     overflow: hidden;
 
     &.hidden {
       height: 0;
-      border-top: none;
+      opacity: 0;
     }
   }
 }

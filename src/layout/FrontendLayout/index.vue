@@ -10,7 +10,7 @@
         <div class="frontend-content">
           <router-view />
         </div>
-        <ToolBar />
+        <ToolBar source="frontend" />
       </el-scrollbar>
     </div>
     <div :class="['frontend-footer', 'center-x', footerHidden ? 'hidden' : '']">

@@ -3,9 +3,15 @@
 .tool-bar {
   z-index: 20;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: calc(50% + 690px);
   display: inline-flex;
+
+  &.bottom-right {
+    left: auto;
+    right: 15px;
+  }
 
   .tool-button {
     @extend .flex-center;
@@ -15,6 +21,7 @@
     height: 32px;
     box-sizing: border-box;
     border: 1px solid var(--el-border-color);
+    background-color: var(--el-fill-color-light);
     cursor: pointer;
 
     &:first-child {

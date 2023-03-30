@@ -1,5 +1,7 @@
 @use '@/styles/variables.scss' as *;
 
+$container-height: calc(100vh - $header-height - $footer-height);
+
 .backend-layout {
   position: relative;
   width: 100vw;
@@ -10,7 +12,7 @@
   .backend-side {
     position: relative;
     flex-shrink: 0;
-    height: 100%;
+    height: 100vh;
     width: $side-width;
     transition: width 1s ease;
     border-right: 1px solid var(--el-border-color);
@@ -25,7 +27,7 @@
   .backend-main {
     position: relative;
     flex-grow: 1;
-    height: 100%;
+    height: 100vh;
   }
 
   .backend-header {
@@ -39,10 +41,13 @@
   .backend-container {
     position: relative;
     flex-grow: 1;
-    height: calc(100% - $header-height - $footer-height);
+    height: $container-height;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 20px 20px;
+
+    .full-height {
+      height: $container-height;
+    }
   }
 
   .backend-footer {

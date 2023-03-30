@@ -1,5 +1,5 @@
 <template>
-  <div class="tool-bar flex-column">
+  <div :class="['tool-bar', 'flex-column', source === 'backend' ? 'bottom-right' : '']">
     <div ref="scrollRef" class="tool-button" @click="clickBackTop">
       <el-icon><Top /></el-icon>
     </div>
@@ -24,6 +24,13 @@ export default {
 import { ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
+
+defineProps({
+  source: {
+    type: String,
+    required: true,
+  },
+})
 
 const scrollRef = ref(null)
 const clickBackTop = () => {
